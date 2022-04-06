@@ -10,12 +10,13 @@
          up iptables -t nat -A PREROUTING -p tcp --dport 80 -i eth* -j DNAT --to (ip privada)
          down iptables -t nat -A PREROUTING -p tcp --dport 80 -i eth* -j DNAT --to (ip privada)
 
-      ssh --> up iptables -t nat -A PREROUTING -p ssh --dport 22 -i eth* -j DNAT --to (ip privada)
-              down iptables -t nat -A PREROUTING -p ssh --dport 22 -i eth* -j DNAT --to (ip privada)
+##### ssh #####
+         up iptables -t nat -A PREROUTING -p ssh --dport 22 -i eth* -j DNAT --to (ip privada)
+         down iptables -t nat -A PREROUTING -p ssh --dport 22 -i eth* -j DNAT --to (ip privada)
               
 ### cisco ###
 
-#### SANT ####
+#### SNAT ####
 
         access-list 1 permit ip wilcardmask
         ip nat pool ip_publica IP1 IP2 netmask mascara
