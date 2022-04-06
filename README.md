@@ -22,6 +22,7 @@
 - Damos ips a nuestras interfaces
 - Accedemos al fichero /etc/default/isc-dhcp-server y asignamos la interfaz que va a dar las ipv4
 - Configuramos los parámetros que van a obtener los dispositivos por dhcp en el fichero /etc/dhcp/dhcpd.conf
+
 **ejemplo**
 
 	subnet IPprivada netmask (netmask) {
