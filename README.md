@@ -42,7 +42,7 @@ access-list número(a partir del 100 hasta la 199) {permit | deny} protocolo ip_
 *Asignar ACLs a su interfaz correspondiente con el comando:
 ip access-group numero_acl out/in
 
-
+-------------------------------------------
 ### Configuración SNAT LINUX
 
 #### SNAT
