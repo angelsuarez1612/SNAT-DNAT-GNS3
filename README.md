@@ -26,10 +26,10 @@
 **ejemplo**
 
 	subnet IPprivada netmask (netmask) {
-	range IP1 IP2;
-	option domain-name-server (ip interfaz privada);
-	option routers (ip interfaz privada);
-	option broadcast-address (ip interfaz privada);
+		range IP1 IP2;
+		option domain-name-server (ip interfaz privada);
+		option routers (ip interfaz privada);
+		option broadcast-address (ip interfaz privada);
         }     
 	
 - Reiniciamos el servicio con service isc-dhcp-server restart
