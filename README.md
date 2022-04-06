@@ -35,7 +35,7 @@ access-list 1 {deny | permit} host dirección
 
 ## Extendidas
 Verifican otros muchos elementos más que las básicas como por ejemplo protocolos, números de puerto… (los puertos se ponen como lt - menor que, gt - mayor que, eq - igual que, neq - distinto que)
-Sintaxis:
+- Sintaxis:
 access-list número(a partir del 100 hasta la 199) {permit | deny} protocolo ip_origen máscara_origen ip_destino máscara_destino operador(eq, lt, gt…) puerto
 
 
