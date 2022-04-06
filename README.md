@@ -2,7 +2,7 @@
 
 ### toolbox ###
 
-SNAT --> up iptables -t nat -A POSTROUTING -s (red privada) -o (interfaz ip publiga) -j SNAT --to (ip publica)
+      SNAT --> up iptables -t nat -A POSTROUTING -s (red privada) -o (interfaz ip publiga) -j SNAT --to (ip publica)
          down iptables -t nat -A POSTROUTING -s (red privada) -o (interfaz ip publiga) -j SNAT --to (ip publica)
          
       DNAT --> up iptables -t nat -A PREROUTING -p tcp --dport 80 -i eth* -j DNAT --to (ip privada)
@@ -13,8 +13,8 @@ SNAT --> up iptables -t nat -A POSTROUTING -s (red privada) -o (interfaz ip publ
               
 ### cisco ###
 
-SNAT --> access-list 1 permit ip wilcardmask
-        ip nat pool ip_publica IP1 IP2 netmask mascara
-        ip nat inside source list NUMACL pool ip_publica overload
-        ip nat inside --> interfaz interna
-        ip nat outside -- interfaz externa
+     SNAT --> access-list 1 permit ip wilcardmask
+              ip nat pool ip_publica IP1 IP2 netmask mascara
+              ip nat inside source list NUMACL pool ip_publica overload
+              ip nat inside --> interfaz interna
+              ip nat outside -- interfaz externa
