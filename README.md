@@ -30,7 +30,7 @@
 		option domain-name-server (ip interfaz privada);
 		option routers (ip interfaz privada);
 		option broadcast-address (ip interfaz privada);
-        }     
+	}     
 	
 - Reiniciamos el servicio con service isc-dhcp-server restart
 
@@ -63,10 +63,10 @@ ip access-group numero_acl out/in
 #### DNAT
 
 	up iptables -t nat -A PREROUTING -p tcp --dport 80 -i eth* -j DNAT --to (ip privada)
-        down iptables -t nat -A PREROUTING -p tcp --dport 80 -i eth* -j DNAT --to (ip privada)
+	down iptables -t nat -A PREROUTING -p tcp --dport 80 -i eth* -j DNAT --to (ip privada)
 	
 **ssh**
 
 	up iptables -t nat -A PREROUTING -p ssh --dport 22 -i (interfaz ip publica) -j DNAT --to (ip privada)
-        down iptables -t nat -A PREROUTING -p ssh --dport 22 -i (interfaz ip publica) -j DNAT --to (ip privada)
+	down iptables -t nat -A PREROUTING -p ssh --dport 22 -i (interfaz ip publica) -j DNAT --to (ip privada)
               
