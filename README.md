@@ -57,13 +57,16 @@ ip access-group numero_acl out/in
 
 #### SNAT
 
-      SNAT --> up iptables -t nat -A POSTROUTING -s (red privada) -o (interfaz ip publica) -j SNAT --to (ip publica)
-         down iptables -t nat -A POSTROUTING -s (red privada) -o (interfaz ip publica) -j SNAT --to (ip publica)
+	up iptables -t nat -A POSTROUTING -s (red privada) -o (interfaz ip publica) -j SNAT --to (ip publica)
+        down iptables -t nat -A POSTROUTING -s (red privada) -o (interfaz ip publica) -j SNAT --to (ip publica)
 
 #### DNAT
-      DNAT --> up iptables -t nat -A PREROUTING -p tcp --dport 80 -i eth* -j DNAT --to (ip privada)
-         down iptables -t nat -A PREROUTING -p tcp --dport 80 -i eth* -j DNAT --to (ip privada)
 
-      ssh --> up iptables -t nat -A PREROUTING -p ssh --dport 22 -i (interfaz ip publica) -j DNAT --to (ip privada)
-              down iptables -t nat -A PREROUTING -p ssh --dport 22 -i (interfaz ip publica) -j DNAT --to (ip privada)
+	up iptables -t nat -A PREROUTING -p tcp --dport 80 -i eth* -j DNAT --to (ip privada)
+        down iptables -t nat -A PREROUTING -p tcp --dport 80 -i eth* -j DNAT --to (ip privada)
+	
+**ssh**
+
+	up iptables -t nat -A PREROUTING -p ssh --dport 22 -i (interfaz ip publica) -j DNAT --to (ip privada)
+        down iptables -t nat -A PREROUTING -p ssh --dport 22 -i (interfaz ip publica) -j DNAT --to (ip privada)
               
