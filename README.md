@@ -58,7 +58,7 @@ Y nuevamente iniciamos el servicio con `/etc/init.d/isc-dhcp-server start`.
 -------------------------------------------
 ### Básicas
 Sintaxis:
-access-list número {permit o deny} dirección máscara
+`access-list número {permit o deny} direccion máscara`
 - Denegar o permitir todo un tráfico:
 `access-list 1 {deny | permit} any`
 - Denegar o permitir de una dirección específica:
@@ -97,15 +97,41 @@ Verifican otros muchos elementos más que las básicas como por ejemplo protocol
 
 ## Firewall
 
+**Añadir regla:**(Se añade al final de todas las reglas)<br>
 
+`iptables -A [CADENA] [-p PROTOCOLO] [-s IP_ORIGEN] [-d IP_DESTINO] [-i INTERFAZ_ENTRADA] [-o INTERFAZ_SALIDA] [-j ACCEPT|DROP]`<br>
 
+**Eliminar regla:**<br>
 
+`iptables -A [CADENA] [-p PROTOCOLO] [-s IP_ORIGEN] [-d IP_DESTINO] [-i INTERFAZ_ENTRADA] [-o INTERFAZ_SALIDA] [-j ACCEPT|DROP]`<br>
 
+**Listar reglas:**<br>
 
+`iptables [-t tabla ] -L [CADENA] [-n] [-v] [--line-numbers]` o `iptables [-t tabla] -S [CADENA] [-v]`
 
+**Política por defecto:**<br>
 
+`iptables [-t tabla] -P CADENA ACCEPT|DROP`
+_Nota: El target se ejecutará cuando los paquetes no cumplan ninguna regla de la chain especificada. _
 
+La tabla filter cuenta con 3 chains o cadenas predefinidas:
 
+### INPUT
+Paquetes dirigidos al cortafuegos.
 
+**Sintaxis:**<br>
 
+`iptables -A INPUT [-p PROTOCOLO] [-s IP_ORIGEN] [-d IP_DESTINO] [-i INTERFAZ_ENTRADA] [-j ACCEPT|DROP]`
 
+### OUTPUT
+Paquetes generados localmente.
+
+**Sintaxis:**<br>
+`iptables -A INPUT [-p PROTOCOLO] [-s IP_ORIGEN] [-d IP_DESTINO] [-o INTERFAZ_SALIDA] [-j ACCEPT|DROP]`
+
+### FORWARD
+Paquetes errutados a traés de la máquina para otras redes.
+
+**Ejemplo:**<br>
+Para permitir protocolo ICMP(ping)<br>
+`iptables -A FORWARD -s IP_ORIGEN -m icmp --icmp-type echo-request -j ACCEPT`
