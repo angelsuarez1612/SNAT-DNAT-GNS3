@@ -135,3 +135,19 @@ Paquetes errutados a través de la máquina para otras redes.
 **Ejemplo:**<br>
 Para permitir protocolo ICMP(ping)<br>
 `iptables -A FORWARD -s IP_ORIGEN -m icmp --icmp-type echo-request -j ACCEPT`
+
+
+### SSH
+
+1. Añadir NAT en Tiny Core y ToolBox.
+2. Instalar en ambos ssh
+- Tiny Core: `tce-load -wi openssh`
+- Linux: `apt update && apt install ssh`
+3. Editamos el fichero con `nano /etc/ssh/sshd_config`(Esto ya solo en el ToolBox)
+4. Descomentar las lineas:
+- `Port 22`
+- `PermitRootLogin` _poner_ `yes`
+- `passwordAuthentication yes` 	
+5. Reiniciamos el servicio con `service ssh restart`
+
+
