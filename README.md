@@ -103,7 +103,7 @@ Verifican otros muchos elementos más que las básicas como por ejemplo protocol
 
 **Eliminar regla:**<br>
 
-`iptables -A [CADENA] [-p PROTOCOLO] [-s IP_ORIGEN] [-d IP_DESTINO] [-i INTERFAZ_ENTRADA] [-o INTERFAZ_SALIDA] [-j ACCEPT|DROP]`<br>
+`iptables -D [CADENA] [-p PROTOCOLO] [-s IP_ORIGEN] [-d IP_DESTINO] [-i INTERFAZ_ENTRADA] [-o INTERFAZ_SALIDA] [-j ACCEPT|DROP]`<br>
 
 **Listar reglas:**<br>
 
