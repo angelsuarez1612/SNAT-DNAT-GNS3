@@ -130,7 +130,7 @@ Paquetes generados localmente.
 `iptables -A INPUT [-p PROTOCOLO] [-s IP_ORIGEN] [-d IP_DESTINO] [-o INTERFAZ_SALIDA] [-j ACCEPT|DROP]`
 
 ### FORWARD
-Paquetes errutados a traés de la máquina para otras redes.
+Paquetes errutados a través de la máquina para otras redes.
 
 **Ejemplo:**<br>
 Para permitir protocolo ICMP(ping)<br>
