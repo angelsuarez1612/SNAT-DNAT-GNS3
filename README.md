@@ -52,6 +52,7 @@ Y nuevamente iniciamos el servicio con `/etc/init.d/isc-dhcp-server start`.
 
 ### Enrrutamiento Linux
 - `ip route add IP/MASK via IP_DESTINO`
+- Descomentar linea `net.ipv4.ip_forward=1` en el fichero `/etc/sysctl.conf`
 <br>
 
 ## ACLs
